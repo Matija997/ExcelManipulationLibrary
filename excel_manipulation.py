@@ -68,6 +68,8 @@ class ExcelApi:
         except Exception as e:
             print(f"An unexcpected error occured: {e}")
 
+        self.excelObject = None
+
     def excel_create(self, data: list = None) -> None:
         """
         Creates an Excel file with the provided data.
@@ -214,6 +216,7 @@ class ExcelApi:
                 self.excel_create(data)
 
             wb = load_workbook(self.filename)
+            self.excelObject = wb
 
             return wb
         except Exception as e:
